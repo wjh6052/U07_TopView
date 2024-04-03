@@ -12,13 +12,18 @@ class TOPVIEW_API ACSliceMesh : public AActor
 public:	
 	ACSliceMesh();
 
+	virtual void OnConstruction(const FTransform& Transform) override;
+
 protected:
 	virtual void BeginPlay() override;
 
 private:
-	//Root
-	//OriginMesh(SM)
-	//CopiedMesh(ProcMesh)
-	//-> Slice
+	UPROPERTY(VisibleDefaultsOnly)
+		class USceneComponent* Root;
 
+	UPROPERTY(VisibleDefaultsOnly)
+		class UStaticMeshComponent* OriginMesh;
+
+	UPROPERTY(VisibleDefaultsOnly)
+		class UProceduralMeshComponent* CopiedMesh;
 };
